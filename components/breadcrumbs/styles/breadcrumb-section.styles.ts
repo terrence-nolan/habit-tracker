@@ -1,7 +1,10 @@
-import { colors, spacing } from '@/theme';
+import { spacing } from '@/theme';
 import { StyleSheet } from 'react-native';
 
-export const styles = StyleSheet.create({
+export const createStyles = (colors: {
+  background: string;
+  primary: string;
+}) => StyleSheet.create({ 
   container: {
     height: spacing.s32,
     width: spacing.s32,

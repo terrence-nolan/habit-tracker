@@ -1,12 +1,15 @@
+import { useThemeColors } from '@/theme';
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles/breadcrumb-section.styles';
+import { createStyles } from './styles/breadcrumb-section.styles';
 
 type BreadcrumbProps = {
   isActive?: boolean;
 }
 
 export function Breadcrumb({ isActive = false }: BreadcrumbProps) {
+  const colors = useThemeColors();
+  const styles = createStyles(colors);
   const [active, setActive] = useState(isActive);
   
   function handleBreadcrumbTap() {
