@@ -1,16 +1,24 @@
-import { Breadcrumb } from "@/components/breadcrumbs/breadcrumb";
-import { View } from "react-native";
+import React from "react";
+import { Text, View } from "react-native";
+import { useIndexStyles } from "./styles/index.styles";
 
 export default function Index() {
+  const styles = useIndexStyles();
+  const currentDate = new Date();
+
+  const options = {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+  } as const;
+
+  const fullDate = currentDate.toLocaleDateString('en-US', options);
+
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={styles.page}
     >
-      <Breadcrumb />
+      <Text>{fullDate}</Text>
     </View>
   );
 }
