@@ -1,10 +1,10 @@
-import { spacing, useThemeColors } from '@/theme';
-import { StyleSheet } from 'react-native';
+import { spacing, useThemeColors } from "@/theme";
+import { StyleSheet } from "react-native";
 
 export function useBreadCrumbStyles() {
   const colors = useThemeColors();
 
-  return StyleSheet.create({ 
+  return StyleSheet.create({
     container: {
       height: spacing.s32,
       width: spacing.s32,

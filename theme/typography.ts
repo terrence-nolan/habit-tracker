@@ -8,9 +8,9 @@ export const typography = {
     xl: 24,
   },
   weights: {
-    regular: '400',
-    medium: '500',
-    semibold: '600',
-    bold: '700',
+    regular: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
   },
 } as const;

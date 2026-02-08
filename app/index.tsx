@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useIndexStyles } from "./styles/index.styles";
 
 export default function Index() {
@@ -7,18 +8,16 @@ export default function Index() {
   const currentDate = new Date();
 
   const options = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
+    weekday: "long",
+    month: "long",
+    day: "numeric",
   } as const;
 
-  const fullDate = currentDate.toLocaleDateString('en-US', options);
+  const fullDate = currentDate.toLocaleDateString("en-US", options);
 
   return (
-    <View
-      style={styles.page}
-    >
-      <Text>{fullDate}</Text>
-    </View>
+    <SafeAreaView style={styles.page}>
+      <Text style={styles.date}>{fullDate}</Text>
+    </SafeAreaView>
   );
 }

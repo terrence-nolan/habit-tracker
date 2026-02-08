@@ -1,4 +1,4 @@
-import { useThemeColors } from "@/theme";
+import { typography, useThemeColors } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export function useIndexStyles() {
@@ -7,6 +7,11 @@ export function useIndexStyles() {
   return StyleSheet.create({
     page: {
       backgroundColor: colors.background,
+    },
+    date: {
+      color: colors.textPrimary,
+      fontSize: typography.sizes.lg,
+      fontWeight: typography.weights.semibold,
     },
   });
 }
