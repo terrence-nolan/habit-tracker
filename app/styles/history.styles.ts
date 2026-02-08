@@ -1,7 +1,7 @@
-import { spacing, typography, useThemeColors } from "@/theme";
+import { spacing, useThemeColors } from "@/theme";
 import { StyleSheet } from "react-native";
 
-export function useIndexStyles() {
+export function useHistoryStyles() {
   const colors = useThemeColors();
 
   return StyleSheet.create({
@@ -10,13 +10,8 @@ export function useIndexStyles() {
       backgroundColor: colors.background,
       paddingHorizontal: spacing.s16,
     },
-    dateContainer: {
-      marginTop: spacing.s16,
-    },
-    date: {
+    text: {
       color: colors.textPrimary,
-      fontSize: typography.sizes.xl,
-      fontWeight: typography.weights.semibold,
     },
   });
 }

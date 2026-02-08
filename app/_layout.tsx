@@ -11,7 +11,7 @@ export default function TabLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
-          tabBarStyle: { backgroundColor: colors.background, },
+          tabBarStyle: { backgroundColor: colors.background },
           tabBarActiveTintColor: colors.primary,
           tabBarInactiveTintColor: colors.textSecondary,
           tabBarIconStyle: {
@@ -24,18 +24,26 @@ export default function TabLayout() {
           name="index"
           options={{
             tabBarIcon: ({ color, size, focused }) => (
-              <CalendarDotIcon color={color} size={size} weight={focused ? "fill" : "regular"} />
+              <CalendarDotIcon
+                color={color}
+                size={size}
+                weight={focused ? "fill" : "regular"}
+              />
             ),
             title: "Today",
           }}
         />
         <Tabs.Screen
-          name="you"
+          name="history"
           options={{
             tabBarIcon: ({ color, size, focused }) => (
-              <ChartBarIcon color={color} size={size} weight={focused ? "fill" : "regular"} />
+              <ChartBarIcon
+                color={color}
+                size={size}
+                weight={focused ? "fill" : "regular"}
+              />
             ),
-            title: "You",
+            title: "History",
           }}
         />
       </Tabs>

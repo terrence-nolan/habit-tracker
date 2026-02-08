@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useIndexStyles } from "./styles/index.styles";
 
@@ -17,7 +17,9 @@ export default function Index() {
 
   return (
     <SafeAreaView style={styles.page}>
-      <Text style={styles.date}>{fullDate}</Text>
+      <View style={styles.dateContainer}>
+        <Text style={styles.date}>{fullDate}</Text>
+      </View>
     </SafeAreaView>
   );
 }
