@@ -13,6 +13,7 @@ export function useBreadCrumbSectionStyles() {
     },
     breadcrumbSection: {
       flexDirection: "row",
+      flexWrap: "wrap",
       gap: spacing.s8,
     },
   });

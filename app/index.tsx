@@ -21,7 +21,7 @@ export default function Index() {
       <View style={styles.dateContainer}>
         <Text style={styles.date}>{fullDate}</Text>
       </View>
-      <BreadcrumbSection title="Drink Water" goal={8} />
+      <BreadcrumbSection title="Drink Water" goal={18} />
     </SafeAreaView>
   );
 }
