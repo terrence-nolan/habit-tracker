@@ -14,6 +14,7 @@ export const colors = {
     primarySubtle: "#E6F2EE", // backgrounds, highlights, progress fill
 
     danger: "#DC2626",
+    inactive: "#D1D5DB",
   },
 
   /* ---------- Dark Mode ---------- */
@@ -30,5 +31,6 @@ export const colors = {
     primarySubtle: "#1F2F29",
 
     danger: "#F87171",
+    inactive: "#374151",
   },
 } as const;

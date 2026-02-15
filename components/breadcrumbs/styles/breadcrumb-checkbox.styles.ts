@@ -20,8 +20,7 @@ export function useBreadCrumbStyles() {
       borderColor: colors.primary,
     },
     inactive: {
-      opacity: 0.3,
-      borderColor: colors.textSecondary,
+      borderColor: colors.inactive,
     },
   });
 }

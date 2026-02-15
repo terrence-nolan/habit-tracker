@@ -19,19 +19,16 @@ export function BreadcrumbSection({ title, goal }: BreadcrumbSectionProps) {
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     } else if (index === count - 1) {
       setCount(count - 1);
-      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
     }
   }
 
   return (
     <View>
-      <Text>{title}</Text>
-
+      <Text style={styles.title}>{title}</Text>
       <View style={styles.breadcrumbSection}>
         {Array.from({ length: goal }).map((_, index) => {
           const isChecked = index < count;
           const isActive = index === count || index === count - 1;
-
           return (
             <BreadcrumbCheckbox
               key={index}
