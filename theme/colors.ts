@@ -2,11 +2,11 @@
 export const colors = {
   /* ---------- Light Mode ---------- */
   light: {
-    background: "#F7F8F6", // warm off-white (easy on eyes)
-    surface: "#FFFFFF", // cards, modals
+    background: "#F4F7F5", // warm off-white (easy on eyes)
+    surface: "#FBFDFC", // cards, modals
     textPrimary: "#1F2933", // soft charcoal (not pure black)
     textSecondary: "#6B7280",
-    border: "#E5E7EB",
+    border: "#E2E8E5",
 
     // Growth / progress
     primary: "#7FB8A6", // muted sage green

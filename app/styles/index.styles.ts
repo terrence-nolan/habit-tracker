@@ -18,5 +18,13 @@ export function useIndexStyles() {
       fontSize: typography.sizes.xl,
       fontWeight: typography.weights.semibold,
     },
+    addButton: {
+      position: "absolute",
+      bottom: spacing.s48,
+      right: spacing.s28,
+      backgroundColor: colors.primary,
+      padding: spacing.s12,
+      borderRadius: spacing.s28,
+    },
   });
 }

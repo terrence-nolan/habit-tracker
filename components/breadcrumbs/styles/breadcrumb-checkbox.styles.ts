@@ -9,15 +9,14 @@ export function useBreadCrumbStyles() {
       height: spacing.s32,
       width: spacing.s32,
       borderRadius: spacing.s4,
-      borderColor: colors.primary,
+      borderColor: colors.primaryRich,
       borderWidth: spacing.s2,
-      backgroundColor: colors.background,
       justifyContent: "center",
       alignItems: "center",
     },
     checked: {
-      backgroundColor: colors.primary,
-      borderColor: colors.primary,
+      backgroundColor: colors.primaryRich,
+      borderColor: colors.primaryRich,
     },
     inactive: {
       borderColor: colors.inactive,
