@@ -15,34 +15,22 @@ export function useBreadCrumbSectionStyles() {
       color: colors.textPrimary,
       fontSize: typography.sizes.lg,
       fontWeight: typography.weights.medium,
-      paddingBottom: spacing.s8,
     },
-    infoContainer: {
+    titleContainer: {
       flexDirection: "row",
-      justifyContent: "space-between",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      gap: spacing.s8,
       marginBottom: spacing.s4,
     },
     consistencyContainer: {
       flexDirection: "row",
       alignItems: "center",
     },
-    consistencyText: {
-      color: colors.textSecondary,
-      fontSize: typography.sizes.sm,
-    },
-    unitContainer: {
-      flexDirection: "row",
-      alignItems: "center",
-    },
-    unitBox: {
-      height: spacing.s12,
-      width: spacing.s12,
-      borderRadius: spacing.s2,
-      backgroundColor: colors.primaryRich,
-    },
     unitText: {
       color: colors.textSecondary,
       fontSize: typography.sizes.sm,
+      marginBottom: spacing.s4,
     },
     breadcrumbSection: {
       flexDirection: "row",

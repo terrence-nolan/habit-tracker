@@ -1,3 +1,4 @@
+import { Consistency } from "@/constants/consistency";
 import { spacing, useThemeColors } from "@/theme";
 import * as Haptics from "expo-haptics";
 import { CircleIcon } from "phosphor-react-native";
@@ -10,12 +11,14 @@ type BreadcrumbSectionProps = {
   title: string;
   goal: number;
   unit: string;
+  consistency: Consistency;
 };
 
 export function BreadcrumbSection({
   title,
   goal,
   unit,
+  consistency,
 }: BreadcrumbSectionProps) {
   const styles = useBreadCrumbSectionStyles();
   const colors = useThemeColors();
@@ -30,19 +33,39 @@ export function BreadcrumbSection({
     }
   }
 
+  function getConsistencyColor() {
+    switch (consistency) {
+      case Consistency.LOW:
+        return colors.error;
+      case Consistency.MEDIUM:
+        return "gold";
+      case Consistency.HIGH:
+        return colors.primaryRich;
+      default:
+        return colors.inactive;
+    }
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.infoContainer}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>{title}</Text>
         <View style={styles.consistencyContainer}>
-          <CircleIcon size={spacing.s8} color={colors.primary} weight="fill" />
-          <Text style={styles.consistencyText}> High Consistency</Text>
-        </View>
-        <View style={styles.unitContainer}>
-          <View style={styles.unitBox} />
-          <Text style={styles.unitText}> = {unit}</Text>
+          <CircleIcon
+            size={spacing.s16}
+            color={getConsistencyColor()}
+            weight="fill"
+            style={{ opacity: 0.5 }}
+          />
+          <CircleIcon
+            size={spacing.s8}
+            color={getConsistencyColor()}
+            weight="fill"
+            style={{ position: "absolute", marginLeft: spacing.s4 }}
+          />
         </View>
       </View>
+      <Text style={styles.unitText}>{unit} per</Text>
       <View style={styles.breadcrumbSection}>
         {Array.from({ length: goal }).map((_, index) => {
           const isChecked = index < count;
