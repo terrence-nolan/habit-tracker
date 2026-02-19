@@ -16,7 +16,7 @@ export function useChipStyles() {
       fontSize: typography.sizes.sm,
     },
     chipContainerActive: {
-      backgroundColor: colors.primaryRich,
+      backgroundColor: colors.primary,
     },
     chipTextActive: {
       color: colors.textPrimaryInverted,

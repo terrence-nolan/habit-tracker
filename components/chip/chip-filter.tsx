@@ -7,9 +7,14 @@ import { useChipFilterStyles } from "./styles/chip-filter.styles";
 type ChipFilterProps = {
   isActive: string;
   setIsActive: (label: string) => void;
+  includeAllOption?: boolean;
 };
 
-export function ChipFilter({ isActive, setIsActive }: ChipFilterProps) {
+export function ChipFilter({
+  isActive,
+  setIsActive,
+  includeAllOption = true,
+}: ChipFilterProps) {
   const styles = useChipFilterStyles();
 
   function handleChipPress(filter: string) {
@@ -19,11 +24,13 @@ export function ChipFilter({ isActive, setIsActive }: ChipFilterProps) {
 
   return (
     <View style={styles.filterContainer}>
-      <Chip
-        label="All"
-        onPress={() => handleChipPress("All")}
-        isActive={isActive === "All"}
-      />
+      {includeAllOption && (
+        <Chip
+          label="All"
+          onPress={() => handleChipPress("All")}
+          isActive={isActive === "All"}
+        />
+      )}
       <Chip
         label="Daily"
         onPress={() => handleChipPress("Daily")}

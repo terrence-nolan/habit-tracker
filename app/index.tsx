@@ -7,7 +7,14 @@ import { spacing, useThemeColors } from "@/theme";
 import * as Haptics from "expo-haptics";
 import { PlusIcon } from "phosphor-react-native";
 import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  Modal,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useIndexStyles } from "./styles/index.styles";
 
@@ -16,6 +23,7 @@ export default function Index() {
   const colors = useThemeColors();
   const currentDate = new Date();
   const [isActive, setIsActive] = useState("All");
+  const [showAddHabitModal, setShowAddHabitModal] = useState(false);
 
   const habits = mockHabits;
 
@@ -28,6 +36,12 @@ export default function Index() {
   const fullDate = currentDate.toLocaleDateString("en-US", options);
 
   const handleAddHabit = () => {
+    setShowAddHabitModal(true);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
+  };
+
+  const handleCloseAddHabitModal = () => {
+    setShowAddHabitModal(false);
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft);
   };
 
@@ -58,6 +72,36 @@ export default function Index() {
       <TouchableOpacity style={styles.addButton} onPress={handleAddHabit}>
         <PlusIcon size={spacing.s32} color={colors.background} />
       </TouchableOpacity>
+      {showAddHabitModal && (
+        <Modal
+          animationType="slide"
+          onRequestClose={() => handleCloseAddHabitModal()}
+          backdropColor={colors.background}
+          presentationStyle="pageSheet"
+        >
+          <SafeAreaView>
+            <Text style={styles.addModalTitle}>Add Habit</Text>
+            <Text style={styles.inputLabel}>Habit Title</Text>
+            <TextInput style={styles.input} placeholder="Habit Title" />
+            <Text style={styles.inputLabel}>Goal</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Goal"
+              keyboardType="number-pad"
+            />
+            <Text style={styles.inputLabel}>Unit of Measure</Text>
+            <TextInput style={styles.input} placeholder="Unit of Measure" />
+            <Text style={styles.inputLabel}>Time Range</Text>
+            <View style={{ paddingHorizontal: spacing.s16 }}>
+              <ChipFilter
+                isActive={isActive}
+                setIsActive={setIsActive}
+                includeAllOption={false}
+              />
+            </View>
+          </SafeAreaView>
+        </Modal>
+      )}
     </SafeAreaView>
   );
 }
