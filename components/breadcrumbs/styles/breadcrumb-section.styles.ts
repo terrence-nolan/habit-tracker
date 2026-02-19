@@ -18,9 +18,8 @@ export function useBreadCrumbSectionStyles() {
     },
     titleContainer: {
       flexDirection: "row",
-      justifyContent: "flex-start",
+      justifyContent: "space-between",
       alignItems: "center",
-      gap: spacing.s8,
       marginBottom: spacing.s4,
     },
     consistencyContainer: {

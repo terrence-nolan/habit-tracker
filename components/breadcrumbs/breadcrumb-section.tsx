@@ -55,7 +55,7 @@ export function BreadcrumbSection({
             size={spacing.s16}
             color={getConsistencyColor()}
             weight="fill"
-            style={{ opacity: 0.5 }}
+            style={{ opacity: consistency === Consistency.UNDEFINED ? 0 : 0.5 }}
           />
           <CircleIcon
             size={spacing.s8}
