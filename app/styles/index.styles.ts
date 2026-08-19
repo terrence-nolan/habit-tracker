@@ -11,8 +11,7 @@ export function useIndexStyles() {
       paddingHorizontal: spacing.s16,
     },
     dateContainer: {
-      marginTop: spacing.s12,
-      marginBottom: spacing.s16,
+      marginVertical: spacing.s12,
     },
     date: {
       color: colors.textPrimary,

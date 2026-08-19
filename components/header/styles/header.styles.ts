@@ -7,7 +7,7 @@ export function useHeaderStyles() {
       flexDirection: "row",
       justifyContent: "flex-start",
       alignItems: "center",
-      paddingVertical: spacing.s4,
+      paddingBottom: spacing.s4,
     },
   });
 }

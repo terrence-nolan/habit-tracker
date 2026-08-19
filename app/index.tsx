@@ -3,10 +3,10 @@ import { ChipFilter } from "@/components/chip/chip-filter";
 import { Header } from "@/components/header/header";
 import { Consistency } from "@/constants/consistency";
 import { mockHabits } from "@/mocks/habits";
-import { spacing, useThemeColors } from "@/theme";
+import { spacing, typography, useThemeColors } from "@/theme";
 import * as Haptics from "expo-haptics";
 import { PlusIcon } from "phosphor-react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   ScrollView,
@@ -24,6 +24,8 @@ export default function Index() {
   const currentDate = new Date();
   const [isActive, setIsActive] = useState("All");
   const [showAddHabitModal, setShowAddHabitModal] = useState(false);
+  const [barWidth, setBarWidth] = useState("0%");
+  const progressPercentage = 0.75;
 
   const habits = mockHabits;
 
@@ -46,14 +48,74 @@ export default function Index() {
   };
 
   const filteredHabits = habits.filter(
-    (habit) => habit.frequency === isActive || isActive === "All"
+    (habit) => habit.frequency === isActive || isActive === "All",
   );
 
+  const calculateProgressBarWidth = (progressPercentage: number) => {
+    const minWidth = 5;
+    const maxWidth = 100;
+    const progressBarWidth = progressPercentage * 100;
+    if (progressBarWidth < minWidth) {
+      return `${minWidth}%`;
+    } else if (progressBarWidth > maxWidth) {
+      return `${maxWidth}%`;
+    } else {
+      return `${progressBarWidth}%`;
+    }
+  };
+
+  useEffect(() => {
+    setBarWidth(calculateProgressBarWidth(progressPercentage));
+  }, [progressPercentage]);
+
   return (
-    <SafeAreaView style={styles.page}>
+    <View style={styles.page}>
+      <SafeAreaView style={{ backgroundColor: colors.primary }} />
       <Header />
       <View style={styles.dateContainer}>
         <Text style={styles.date}>{fullDate}</Text>
+      </View>
+      <View style={{ marginBottom: spacing.s16 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: spacing.s8,
+          }}
+        >
+          <Text
+            style={{ color: colors.textPrimary, fontSize: typography.sizes.lg }}
+          >
+            {"Today's Progress"}
+          </Text>
+          <Text
+            style={{
+              color: colors.primaryRich,
+              fontSize: typography.sizes.lg,
+              fontWeight: typography.weights.medium,
+            }}
+          >
+            {progressPercentage * 100}%
+          </Text>
+        </View>
+        <View>
+          <View
+            style={{
+              height: spacing.s8,
+              backgroundColor: colors.primarySubtle,
+              borderRadius: spacing.s4,
+            }}
+          >
+            <View
+              style={{
+                height: spacing.s8,
+                backgroundColor: colors.primaryRich,
+                borderRadius: spacing.s4,
+                width: barWidth,
+              }}
+            />
+          </View>
+        </View>
       </View>
       <ChipFilter isActive={isActive} setIsActive={setIsActive} />
       {filteredHabits.length > 0 && (
@@ -102,6 +164,6 @@ export default function Index() {
           </SafeAreaView>
         </Modal>
       )}
-    </SafeAreaView>
+    </View>
   );
 }
