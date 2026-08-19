@@ -5,11 +5,31 @@ export function useBreadCrumbSectionStyles() {
   const colors = useThemeColors();
 
   return StyleSheet.create({
+    container: {
+      padding: spacing.s16,
+      backgroundColor: colors.surface,
+      borderRadius: spacing.s8,
+      marginVertical: spacing.s8,
+    },
     title: {
       color: colors.textPrimary,
       fontSize: typography.sizes.lg,
       fontWeight: typography.weights.medium,
-      paddingBottom: spacing.s8,
+    },
+    titleContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: spacing.s4,
+    },
+    consistencyContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    unitText: {
+      color: colors.textSecondary,
+      fontSize: typography.sizes.sm,
+      marginBottom: spacing.s4,
     },
     breadcrumbSection: {
       flexDirection: "row",

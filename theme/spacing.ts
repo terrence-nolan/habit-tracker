@@ -10,6 +10,8 @@ export const spacing = {
   s24: 24,
   s28: 28,
   s32: 32,
+  s40: 40,
+  s48: 48,
 
   xs: 4,
   sm: 8,
